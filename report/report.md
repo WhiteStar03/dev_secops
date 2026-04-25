@@ -78,6 +78,8 @@ Build a reproducible DevSecOps workflow that deploys WordPress in containers, sc
 - Upgraded WordPress core from `6.4.3-php8.2-apache` to `6.9.4-php8.2-apache`.
 - Kept MariaDB on an explicit supported tag instead of an unpinned floating database image.
 - Removed default unused plugins from the fixed image to reduce attack surface.
+- No third-party plugins are installed in this lab image. If a vulnerable plugin is added later, the same WPScan workflow enumerates plugins and stores the evidence in the scan artifacts.
+- Updated the default theme baseline by using the newer WordPress image and removing stale disclosure files that helped fingerprint the vulnerable build.
 
 ### Hardening Measures
 
@@ -104,6 +106,7 @@ Build a reproducible DevSecOps workflow that deploys WordPress in containers, sc
 - Baseline artifacts: `scans/vulnerable/`
 - Fixed artifacts: `scans/fixed/`
 - GitHub Actions also uploads the same artifacts per run.
+- Residual fixed-scan observations: `wp-cron.php` may still be detected and username enumeration can still expose the initial admin username. These are documented as residual risks rather than false claims of complete security.
 
 Add screenshots or snippets from:
 
@@ -119,15 +122,15 @@ Add screenshots or snippets from:
 
 ### Docker Hub Image
 
-- Replace with your Docker Hub image URL:
+- Replace with your Docker Hub image URL after creating the Docker Hub repository and adding GitHub Actions secrets:
   - `https://hub.docker.com/r/<your-user>/wordpress-devsecops`
 
 ### Registries
 
 - GHCR:
-  - `ghcr.io/WhiteStar03/wordpress-devsecops:latest`
+  - `ghcr.io/whitestar03/wordpress-devsecops:latest`
 - Docker Hub:
-  - `<your-user>/wordpress-devsecops:latest`
+  - `<your-dockerhub-user>/wordpress-devsecops:latest`
 
 ## 5. Tooling Justification
 
