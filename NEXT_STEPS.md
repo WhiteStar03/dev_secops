@@ -9,7 +9,7 @@ https://github.com/WhiteStar03/dev_secops
 The GitHub Actions workflow already ran successfully here:
 
 ```text
-https://github.com/WhiteStar03/dev_secops/actions/runs/24927999983
+https://github.com/WhiteStar03/dev_secops/actions/runs/24928685514
 ```
 
 The fixed image was pushed to GitHub Container Registry:
@@ -204,6 +204,7 @@ Before submitting, confirm you have:
 - Docker Hub image link
 - GHCR image link
 - clear commit history
+- final review checklist in `SUBMISSION_REVIEW.md`
 
 ## 9. What to Say if Asked What You Built
 

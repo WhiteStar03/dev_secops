@@ -213,7 +213,7 @@ docker push youruser/wordpress-devsecops:latest
 ### What to do
 
 1. Edit [report/report.md](/home/paul/Public/faculta/dev_secops/report/report.md:1)
-2. Replace placeholder GitHub and Docker Hub links
+2. Replace the Docker Hub placeholder after publishing the image
 3. Add screenshots or snippets from the scan artifacts
 4. Build PDF:
 
@@ -282,4 +282,5 @@ docker push youruser/wordpress-devsecops:latest
 - hardened image files: done
 - commit history: done
 - Docker Hub image: you still need to publish with your account
-- PDF report: you still need to finalize markdown and run the build
+- PDF report: workflow generation is working; finalize the Docker Hub link, then download the artifact or run `./scripts/build-report.sh`
+- Final explanation/review: see [SUBMISSION_REVIEW.md](/home/paul/Public/faculta/dev_secops/SUBMISSION_REVIEW.md:1)
