@@ -16,7 +16,7 @@ This file maps every lab requirement to the exact implementation in this reposit
 Verified successful workflow run:
 
 ```text
-https://github.com/WhiteStar03/dev_secops/actions/runs/24928685514
+https://github.com/WhiteStar03/dev_secops/actions/runs/24940247993
 ```
 
 GitHub Container Registry image:

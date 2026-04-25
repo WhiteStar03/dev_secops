@@ -106,7 +106,7 @@ Build a reproducible DevSecOps workflow that deploys WordPress in containers, sc
 - Baseline artifacts: `scans/vulnerable/`
 - Fixed artifacts: `scans/fixed/`
 - GitHub Actions also uploads the same artifacts per run.
-- Latest verified workflow run: `https://github.com/WhiteStar03/dev_secops/actions/runs/24940122655`
+- Latest verified workflow run: [GitHub Actions run 24940247993](https://github.com/WhiteStar03/dev_secops/actions/runs/24940247993)
 - Baseline scan evidence:
   - WordPress version `6.4.3`
   - version status `insecure`
