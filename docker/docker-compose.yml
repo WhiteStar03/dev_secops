@@ -1,0 +1,57 @@
+services:
+  db:
+    image: mariadb:11.4
+    container_name: ${COMPOSE_PROJECT_NAME:-devsecops-wp}-db
+    command:
+      - --default-authentication-plugin=mysql_native_password
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wpuser
+      MYSQL_PASSWORD: wppass
+      MYSQL_ROOT_PASSWORD: rootpass
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - wpnet
+
+  wordpress:
+    build:
+      context: ..
+      dockerfile: docker/wordpress/Dockerfile
+      target: ${WP_IMAGE_VARIANT:-fixed}
+    image: ${WP_IMAGE_NAME:-local/wordpress-devsecops}:${WP_IMAGE_TAG:-fixed}
+    container_name: ${COMPOSE_PROJECT_NAME:-devsecops-wp}-wordpress
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wpuser
+      WORDPRESS_DB_PASSWORD: wppass
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_CONFIG_EXTRA: ${WORDPRESS_CONFIG_EXTRA:-}
+    ports:
+      - "${WORDPRESS_PORT:-8080}:8080"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:8080/wp-admin/install.php >/dev/null || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    networks:
+      - wpnet
+
+volumes:
+  db_data:
+
+networks:
+  wpnet:
+    name: ${COMPOSE_PROJECT_NAME:-devsecops-wp}_wpnet
