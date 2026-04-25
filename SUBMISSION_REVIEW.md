@@ -11,7 +11,7 @@ This file maps every lab requirement to the exact implementation in this reposit
 - Fixed/hardened image build files: ready
 - GitHub Container Registry image: ready
 - PDF report generation in GitHub Actions: ready
-- Docker Hub image: pending your Docker Hub account secrets
+- Docker Hub image: ready
 
 Verified successful workflow run:
 
@@ -23,6 +23,13 @@ GitHub Container Registry image:
 
 ```text
 ghcr.io/whitestar03/wordpress-devsecops:latest
+```
+
+Docker Hub image:
+
+```text
+https://hub.docker.com/r/skyv3il/wordpress-devsecops
+skyv3il/wordpress-devsecops:latest
 ```
 
 ## Requirement Review
@@ -38,7 +45,7 @@ ghcr.io/whitestar03/wordpress-devsecops:latest
 | Harden image | Ready | non-root runtime, Apache hardening, PHP hardening, blocked sensitive paths |
 | Rebuild fixed image | Ready | GitHub Actions builds fixed target |
 | Push to GHCR | Ready | latest workflow run pushed `ghcr.io/whitestar03/wordpress-devsecops:latest` |
-| Push to Docker Hub | Pending account setup | Add Docker Hub secrets, rerun workflow |
+| Push to Docker Hub | Ready | `https://hub.docker.com/r/skyv3il/wordpress-devsecops` |
 | Trigger rescan after remediation | Ready | workflow scans both vulnerable and fixed profiles; `scripts/rescan-fixed.sh` does the same locally |
 | Produce PDF report | Ready | `scripts/build-report.sh`; workflow artifact named `report-pdf-<run-id>` |
 
@@ -121,19 +128,16 @@ This satisfies the automation requirement because every push can rebuild, deploy
 
 ## Docker Hub Final Step
 
-Docker Hub cannot be completed automatically until you add your account secrets.
+Docker Hub publishing is configured with GitHub Actions repository secrets:
 
-Do this:
+- `DOCKERHUB_USERNAME`
+- `DOCKERHUB_TOKEN`
 
-1. Create a Docker Hub repository named `wordpress-devsecops`.
-2. Create a Docker Hub access token with read/write permission.
-3. In GitHub, open `Settings -> Secrets and variables -> Actions`.
-4. Add `DOCKERHUB_USERNAME`.
-5. Add `DOCKERHUB_TOKEN`.
-6. Rerun the workflow on `main`.
-7. Confirm `latest` exists at `https://hub.docker.com/r/<your-user>/wordpress-devsecops`.
-8. Replace Docker Hub placeholders in `report/report.md`.
-9. Rerun the workflow or run `./scripts/build-report.sh` to regenerate the final PDF.
+The workflow builds the fixed image and publishes it as:
+
+```text
+skyv3il/wordpress-devsecops:latest
+```
 
 ## PDF Report Step
 
@@ -160,7 +164,7 @@ For final submission, the PDF should include:
 - GitHub repository link
 - latest successful GitHub Actions run link
 - GHCR image link
-- Docker Hub image link after you publish it
+- Docker Hub image link
 - before/after scan evidence
 - explanation of vulnerabilities and remediation
 
@@ -169,5 +173,5 @@ For final submission, the PDF should include:
 Use this:
 
 ```text
-The GitHub repository, Docker Compose deployment, automated WPScan workflow, scan artifacts, hardened image build, GHCR publishing, and PDF generation are ready. The only remaining required deliverable is publishing the final hardened image to Docker Hub, which requires adding my Docker Hub username and access token as GitHub Actions secrets and rerunning the workflow.
+The GitHub repository, Docker Compose deployment, automated WPScan workflow, scan artifacts, hardened image build, GHCR publishing, Docker Hub publishing, and PDF generation are ready.
 ```

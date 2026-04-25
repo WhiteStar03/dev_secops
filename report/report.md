@@ -122,15 +122,14 @@ Add screenshots or snippets from:
 
 ### Docker Hub Image
 
-- Replace with your Docker Hub image URL after creating the Docker Hub repository and adding GitHub Actions secrets:
-  - `https://hub.docker.com/r/<your-user>/wordpress-devsecops`
+- `https://hub.docker.com/r/skyv3il/wordpress-devsecops`
 
 ### Registries
 
 - GHCR:
   - `ghcr.io/whitestar03/wordpress-devsecops:latest`
 - Docker Hub:
-  - `<your-dockerhub-user>/wordpress-devsecops:latest`
+  - `skyv3il/wordpress-devsecops:latest`
 
 ## 5. Tooling Justification
 
