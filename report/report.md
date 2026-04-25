@@ -115,8 +115,7 @@ Add screenshots or snippets from:
 
 ### GitHub Repository
 
-- Replace with your repository URL:
-  - `https://github.com/<your-user>/dev_secops`
+- `https://github.com/WhiteStar03/dev_secops`
 
 ### Docker Hub Image
 
@@ -126,7 +125,7 @@ Add screenshots or snippets from:
 ### Registries
 
 - GHCR:
-  - `ghcr.io/<your-user>/wordpress-devsecops:latest`
+  - `ghcr.io/WhiteStar03/wordpress-devsecops:latest`
 - Docker Hub:
   - `<your-user>/wordpress-devsecops:latest`
 
