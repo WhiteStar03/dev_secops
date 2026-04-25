@@ -27,7 +27,7 @@ curl -fsS -X POST "${INSTALL_URL}?step=2" \
   --data-urlencode "Submit=Install WordPress" \
   --data-urlencode "language=" >/tmp/wordpress-install-response.html
 
-if rg -q "Success!" /tmp/wordpress-install-response.html; then
+if grep -q "Success!" /tmp/wordpress-install-response.html; then
   echo "WordPress installation completed for ${WORDPRESS_URL}"
   exit 0
 fi
