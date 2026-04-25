@@ -18,6 +18,7 @@ This repository implements a small DevSecOps lab for a containerized WordPress d
 - `.github/workflows/scan.yml`: CI pipeline for WPScan, artifact upload, and fixed image publication
 - `scans/`: WPScan JSON and text artifacts
 - `report/report.md`: report source you can export to PDF
+- `SUBMISSION_REVIEW.md`: final requirement checklist and presentation explanation
 
 ## What This Lab Demonstrates
 

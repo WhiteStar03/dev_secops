@@ -32,7 +32,7 @@ ghcr.io/whitestar03/wordpress-devsecops:latest
 | Deploy WordPress using Docker Compose | Ready | `docker/docker-compose.yml` |
 | Automate WPScan in GitHub Actions | Ready | `.github/workflows/scan.yml` |
 | Store WPScan artifacts | Ready | `scans/vulnerable/`, `scans/fixed/`, workflow artifacts |
-| Analyze vulnerabilities | Ready | `report/report.md`, `report/step-by-step-guide.md` |
+| Analyze vulnerabilities | Ready | `report/report.md`, `SUBMISSION_REVIEW.md` |
 | Patch WordPress core | Ready | `docker/wordpress/Dockerfile` updates fixed image to WordPress `6.9.4` |
 | Patch plugins/themes | Ready with explanation | No third-party plugins are installed; unused defaults are removed; theme baseline comes from updated official image |
 | Harden image | Ready | non-root runtime, Apache hardening, PHP hardening, blocked sensitive paths |
