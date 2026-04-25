@@ -1,0 +1,208 @@
+{
+  "banner": {
+    "description": "WordPress Security Scanner by the WPScan Team",
+    "version": "3.8.28",
+    "authors": [
+      "@_WPScan_",
+      "@ethicalhack3r",
+      "@erwan_lr",
+      "@firefart"
+    ],
+    "sponsor": "Sponsored by Automattic - https://automattic.com/"
+  },
+  "start_time": 1777105837,
+  "start_memory": 48816128,
+  "target_url": "http://127.0.0.1:8090/",
+  "target_ip": "127.0.0.1",
+  "effective_url": "http://127.0.0.1:8090/",
+  "interesting_findings": [
+    {
+      "url": "http://127.0.0.1:8090/",
+      "to_s": "Headers",
+      "type": "headers",
+      "found_by": "Headers (Passive Detection)",
+      "confidence": 100,
+      "confirmed_by": {
+
+      },
+      "references": {
+
+      },
+      "interesting_entries": [
+        "Server: Apache/2.4.57 (Debian)",
+        "X-Powered-By: PHP/8.2.17"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:8090/xmlrpc.php",
+      "to_s": "XML-RPC seems to be enabled: http://127.0.0.1:8090/xmlrpc.php",
+      "type": "xmlrpc",
+      "found_by": "Direct Access (Aggressive Detection)",
+      "confidence": 100,
+      "confirmed_by": {
+
+      },
+      "references": {
+        "url": [
+          "http://codex.wordpress.org/XML-RPC_Pingback_API"
+        ],
+        "metasploit": [
+          "auxiliary/scanner/http/wordpress_ghost_scanner",
+          "auxiliary/dos/http/wordpress_xmlrpc_dos",
+          "auxiliary/scanner/http/wordpress_xmlrpc_login",
+          "auxiliary/scanner/http/wordpress_pingback_access"
+        ]
+      },
+      "interesting_entries": [
+
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:8090/readme.html",
+      "to_s": "WordPress readme found: http://127.0.0.1:8090/readme.html",
+      "type": "readme",
+      "found_by": "Direct Access (Aggressive Detection)",
+      "confidence": 100,
+      "confirmed_by": {
+
+      },
+      "references": {
+
+      },
+      "interesting_entries": [
+
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:8090/wp-cron.php",
+      "to_s": "The external WP-Cron seems to be enabled: http://127.0.0.1:8090/wp-cron.php",
+      "type": "wp_cron",
+      "found_by": "Direct Access (Aggressive Detection)",
+      "confidence": 60,
+      "confirmed_by": {
+
+      },
+      "references": {
+        "url": [
+          "https://www.iplocation.net/defend-wordpress-from-ddos",
+          "https://github.com/wpscanteam/wpscan/issues/1299"
+        ]
+      },
+      "interesting_entries": [
+
+      ]
+    }
+  ],
+  "version": {
+    "number": "6.4.3",
+    "release_date": "2024-01-30",
+    "status": "insecure",
+    "found_by": "Rss Generator (Passive Detection)",
+    "confidence": 100,
+    "interesting_entries": [
+      "http://127.0.0.1:8090/?feed=rss2, <generator>https://wordpress.org/?v=6.4.3</generator>",
+      "http://127.0.0.1:8090/?feed=comments-rss2, <generator>https://wordpress.org/?v=6.4.3</generator>"
+    ],
+    "confirmed_by": {
+
+    },
+    "vulnerabilities": [
+
+    ]
+  },
+  "main_theme": {
+    "slug": "twentytwentyfour",
+    "location": "http://127.0.0.1:8090/wp-content/themes/twentytwentyfour/",
+    "latest_version": "1.4",
+    "last_updated": "2025-12-03T00:00:00.000Z",
+    "outdated": true,
+    "readme_url": "http://127.0.0.1:8090/wp-content/themes/twentytwentyfour/readme.txt",
+    "directory_listing": false,
+    "error_log_url": null,
+    "style_url": "http://127.0.0.1:8090/wp-content/themes/twentytwentyfour/style.css",
+    "style_name": "Twenty Twenty-Four",
+    "style_uri": "https://wordpress.org/themes/twentytwentyfour/",
+    "description": "Twenty Twenty-Four is designed to be flexible, versatile and applicable to any website. Its collection of templates and patterns tailor to different needs, such as presenting a business, blogging and writing or showcasing work. A multitude of possibilities open up with just a few adjustments to color and typography. Twenty Twenty-Four comes with style variations and full page designs to help speed up the site building process, is fully compatible with the site editor, and takes advantage of new design tools introduced in WordPress 6.4.",
+    "author": "the WordPress team",
+    "author_uri": "https://wordpress.org",
+    "template": null,
+    "license": "GNU General Public License v2 or later",
+    "license_uri": "http://www.gnu.org/licenses/gpl-2.0.html",
+    "tags": "one-column, custom-colors, custom-menu, custom-logo, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, sticky-post, threaded-comments, translation-ready, wide-blocks, block-styles, style-variations, accessibility-ready, blog, portfolio, news",
+    "text_domain": "twentytwentyfour",
+    "found_by": "Urls In Homepage (Passive Detection)",
+    "confidence": 8,
+    "interesting_entries": [
+
+    ],
+    "confirmed_by": {
+
+    },
+    "vulnerabilities": [
+
+    ],
+    "version": {
+      "number": "1.0",
+      "confidence": 80,
+      "found_by": "Style (Passive Detection)",
+      "interesting_entries": [
+        "http://127.0.0.1:8090/wp-content/themes/twentytwentyfour/style.css, Match: 'Version: 1.0'"
+      ],
+      "confirmed_by": {
+
+      }
+    },
+    "parents": [
+
+    ]
+  },
+  "plugins": {
+
+  },
+  "themes": {
+
+  },
+  "users": {
+    "admin": {
+      "id": null,
+      "found_by": "Author Posts - Display Name (Passive Detection)",
+      "confidence": 100,
+      "interesting_entries": [
+
+      ],
+      "confirmed_by": {
+        "Rss Generator (Passive Detection)": {
+          "confidence": 50,
+          "interesting_entries": [
+
+          ]
+        },
+        "Author Id Brute Forcing - Author Pattern (Aggressive Detection)": {
+          "confidence": 100,
+          "interesting_entries": [
+
+          ]
+        },
+        "Login Error Messages (Aggressive Detection)": {
+          "confidence": 100,
+          "interesting_entries": [
+
+          ]
+        }
+      }
+    }
+  },
+  "vuln_api": {
+    "error": "No WPScan API Token given, as a result vulnerability data has not been output.\nYou can get a free API token with 25 daily requests by registering at https://wpscan.com/register"
+  },
+  "stop_time": 1777105847,
+  "elapsed": 10,
+  "requests_done": 8049,
+  "cached_requests": 8,
+  "data_sent": 2274921,
+  "data_sent_humanised": "2.17 MB",
+  "data_received": 1480831,
+  "data_received_humanised": "1.412 MB",
+  "used_memory": 351023104,
+  "used_memory_humanised": "334.762 MB"
+}
