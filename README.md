@@ -142,7 +142,7 @@ Without `WPSCAN_API_TOKEN`, WPScan still detects versions and configuration weak
 
 ## PDF Report
 
-Edit `report/report.md`, replace the placeholder links, then generate a PDF:
+Edit `report/report.md` if you need to change wording or evidence, then generate a PDF:
 
 ```bash
 ./scripts/build-report.sh

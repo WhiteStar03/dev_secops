@@ -106,13 +106,17 @@ Build a reproducible DevSecOps workflow that deploys WordPress in containers, sc
 - Baseline artifacts: `scans/vulnerable/`
 - Fixed artifacts: `scans/fixed/`
 - GitHub Actions also uploads the same artifacts per run.
+- Latest verified workflow run: `https://github.com/WhiteStar03/dev_secops/actions/runs/24940122655`
+- Baseline scan evidence:
+  - WordPress version `6.4.3`
+  - version status `insecure`
+  - WPScan findings included `headers`, `xmlrpc`, `readme`, and `wp_cron`
+- Fixed scan evidence:
+  - WordPress version `6.9.4`
+  - version status `latest`
+  - `xmlrpc` and `readme` were no longer reported
+  - remaining observations were `headers` and `wp_cron`
 - Residual fixed-scan observations: `wp-cron.php` may still be detected and username enumeration can still expose the initial admin username. These are documented as residual risks rather than false claims of complete security.
-
-Add screenshots or snippets from:
-
-- `scans/vulnerable/*.txt`
-- `scans/fixed/*.txt`
-- GitHub Actions artifact pages
 
 ## 4. Fixed Image Build
 
